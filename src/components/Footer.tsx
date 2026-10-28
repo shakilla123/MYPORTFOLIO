@@ -187,7 +187,7 @@ const Footer: React.FC = () => {
         
         <div className="text-center text-gray-500 text-sm">
           <p className="flex items-center justify-center">
-            © {currentYear} Ishimwe Shakilla. All rights reserved. Made with <Heart size={14} className="text-primary mx-1" fill="currentColor" /> in Rwanda
+            © {currentYear} Ishimwe Shakilla. All rights reserved. 
           </p>
         </div>
       </div>
