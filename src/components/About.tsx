@@ -60,7 +60,7 @@ const About: React.FC = () => {
           
           <div className="md:col-span-7 lg:col-span-8">
             <h3 className="text-2xl font-serif font-bold mb-6">
-              IT & Cybersecurity Enthusiast
+             IT consulting, digital solutions, cybersecurity, and technology innovation.
             </h3>
             
             <p className="text-foreground/80 mb-6 leading-relaxed">
