@@ -49,7 +49,7 @@ const Experience: React.FC = () => {
       ]
     },
     {
-      title: "Technical Lead",
+      title: "Technical Team Lead",
       company: "Rwanda Internet Community and Technology Alliance (RICTA)",
       location: "Kigali, Rwanda",
       period: "2025",
@@ -75,7 +75,7 @@ const Experience: React.FC = () => {
         "Reporting"
       ]
     },
-    
+
     {
       title: "IT Intern",
       company: "AOS Ltd, Telecom House",
@@ -270,7 +270,7 @@ const Experience: React.FC = () => {
               </div>
 
               <p className="text-foreground/80 mt-4">
-                Developed a strong foundation in systems administration,
+                Developed a strong foundation in IT especially Programming, systems administration,
                 network architecture, virtualization, cybersecurity, and
                 communication technologies.
               </p>
