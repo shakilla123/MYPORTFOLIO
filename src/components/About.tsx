@@ -39,7 +39,7 @@ const About: React.FC = () => {
         <div className="mb-16 text-center">
           <h2 className="section-title mx-auto">About Me</h2>
           <p className="text-foreground/70 max-w-3xl mx-auto">
-            Learn more about my background, interests, and what drives me in the field of network engineering and cybersecurity.
+            Learn more about my background, interests, and what drives me in the field of IT.
           </p>
         </div>
         
@@ -60,15 +60,15 @@ const About: React.FC = () => {
           
           <div className="md:col-span-7 lg:col-span-8">
             <h3 className="text-2xl font-serif font-bold mb-6">
-              Network Engineer & Cybersecurity Enthusiast
+              IT & Cybersecurity Enthusiast
             </h3>
             
             <p className="text-foreground/80 mb-6 leading-relaxed">
-              I'm Ishimwe Shakilla, currently pursuing a degree in networks and communication systems. I'm passionate about understanding how networks work and how they can be used to solve real-world problems. As I dive deeper into my studies, I'm discovering the complexities of network engineering and developing a strong foundation in this field.
+              I'm Ishimwe Shakilla, an IT professional with a Bachelor's degree in Networks and Communication Systems. I specialize in IT consulting, ServiceNow administration, systems management, and cybersecurity. I am passionate about leveraging technology to solve real-world challenges, optimize IT operations, and deliver innovative solutions.
             </p>
             
             <p className="text-foreground/80 mb-8 leading-relaxed">
-              In addition to my network engineering skills, I also have experience in coding. I enjoy using my programming skills to enhance my work and find creative solutions to problems. My commitment to understanding the complexities of computer networks and coding increases my desire to contribute meaningfully to technological advancements.
+             In addition to my IT expertise, I have experience in website design, UI/UX design, and digital prototyping through the AUCA Innovation Center. I combine technical expertise, creativity, and problem-solving to design user-centered digital solutions and contribute to technology-driven innovation.
             </p>
             
             <div className="grid sm:grid-cols-2 gap-6">

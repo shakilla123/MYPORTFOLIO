@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
       'UI/UX Designer',
       'Cybersecurity Advocate', 
       'Solutions Engineer',
-      'Front-End Developer',
+      'FrontEnd Developer',
       'Service Management Professional', 
       'IT Enthusiast'];
       
@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
             <span className="animate-pulse">|</span>
           </h2>
           <p className="text-foreground/70 text-lg mb-8 max-w-xl leading-relaxed animate-fadeInUp delay-300">
-          I am an IT professional with a Bachelor’s degree in Networks and Communication Systems and experience in IT consulting, ServiceNow administration, and systems management.
+          I am an IT professional with a Bachelor’s degree of Science in Networks and Communications Systems and experience in IT consulting, ServiceNow administration, and systems management.
           My interests span cybersecurity, IT service management, network infrastructure, and cloud technologies. 
           I enjoy designing technology-driven solutions, improving IT processes through automation, and exploring innovative ways to address complex technical challenges.
           </p>
