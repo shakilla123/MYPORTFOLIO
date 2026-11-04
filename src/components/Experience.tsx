@@ -256,7 +256,7 @@ const Experience: React.FC = () => {
                     Networks and Communication Systems
                   </h4>
                   <p className="text-foreground/75 mb-4">
-                    Bachelor's Degree
+                    Bachelor's Degree in Science with Honors in Networks and Communication Systems (Grand Distinction)
                   </p>
                   <p className="text-foreground/75 text-sm">
                     Adventist University of Central Africa (AUCA)
