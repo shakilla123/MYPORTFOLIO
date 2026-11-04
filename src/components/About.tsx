@@ -90,9 +90,10 @@ const About: React.FC = () => {
                   <Network size={22} className="text-primary" />
                 </span>
                 <div>
-                  <h4 className="font-medium mb-2">Network Management</h4>
+                  <h4 className="font-medium mb-2">Cybersecurity & Systems</h4>
                   <p className="text-foreground/70 text-sm">
-                    Experience with SSH, Telnet, VLAN configuration and management
+                   Cybersecurity practices, system administration,
+                    and network infrastructure.
                   </p>
                 </div>
               </div>
@@ -102,9 +103,10 @@ const About: React.FC = () => {
                   <Code size={22} className="text-primary" />
                 </span>
                 <div>
-                  <h4 className="font-medium mb-2">Programming</h4>
+                  <h4 className="font-medium mb-2">Programming & Automation</h4>
                   <p className="text-foreground/70 text-sm">
-                    Coding experience to enhance network solutions
+                    JavaScript, workflow automation, scripting,
+                    and technical integrations.
                   </p>
                 </div>
               </div>
