@@ -75,29 +75,7 @@ const Experience: React.FC = () => {
         "Reporting"
       ]
     },
-    {
-      title: "Global Citizen Service Ambassador",
-      company: "Global Citizen x Harambee",
-      location: "Rwanda",
-      period: "Feb 2025",
-      description: [
-        "Completed a one-week training followed by fieldwork supporting the Move Afrika 2025 concert headlined by John Legend.",
-        "Contributed to event coordination, youth mobilization, and advocacy for health investment and youth employment in Africa.",
-        "Collaborated with international teams to support the successful delivery of the event and related initiatives."
-      ],
-      skills: [
-        "Event Coordination",
-        "Advocacy",
-        "Youth Mobilization",
-        "Communication",
-        "Teamwork"
-      ],
-      tools: [
-        "Team Coordination",
-        "Stakeholder Communication",
-        "Event Operations"
-      ]
-    },
+    
     {
       title: "IT Intern",
       company: "AOS Ltd, Telecom House",
