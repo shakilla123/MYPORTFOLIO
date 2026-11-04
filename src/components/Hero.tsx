@@ -77,9 +77,7 @@ const Hero: React.FC = () => {
             <span className="animate-pulse">|</span>
           </h2>
           <p className="text-foreground/70 text-lg mb-8 max-w-xl leading-relaxed animate-fadeInUp delay-300">
-          I am an IT professional with a Bachelor’s degree of Science in Networks and Communications Systems and experience in IT consulting, ServiceNow administration, and systems management.
-          My interests span cybersecurity, IT service management, network infrastructure, and cloud technologies. 
-          I enjoy designing technology-driven solutions, improving IT processes through automation, and exploring innovative ways to address complex technical challenges.
+         IT professional specializing in IT consulting, ServiceNow solutions, systems administration, and cybersecurity. Experienced in leveraging technology to streamline operations, automate processes, and develop solutions to real-world challenges. Passionate about technological innovation, digital transformation, and building secure, efficient, and impactful systems.
           </p>
           
           <div className="flex flex-wrap gap-4 mb-10 animate-fadeInUp delay-400">
