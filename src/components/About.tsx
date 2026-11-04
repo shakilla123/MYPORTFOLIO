@@ -77,9 +77,10 @@ const About: React.FC = () => {
                   <Terminal size={22} className="text-primary" />
                 </span>
                 <div>
-                  <h4 className="font-medium mb-2">Linux Expertise</h4>
+                  <h4 className="font-medium mb-2">ServiceNow & ITSM</h4>
                   <p className="text-foreground/70 text-sm">
-                    Skilled in Linux system administration and virtualization
+                    Certified System Administrator,skilled in ServiceNow configuration, CMDB, service catalog,
+                    and IT workflow automation as well Management services.
                   </p>
                 </div>
               </div>
