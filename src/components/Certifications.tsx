@@ -1,5 +1,6 @@
+
 import React, { useState, useRef, useEffect } from 'react';
-import { Award, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Award, ChevronLeft, ChevronRight, ShieldCheck } from 'lucide-react';
 
 interface Certification {
   id: string;
@@ -7,235 +8,453 @@ interface Certification {
   issuer: string;
   date: string;
   credentialId: string;
+  description: string;
   skills: string[];
+  careerPaths: string[];
   image: string;
+  imageFit: 'contain' | 'cover';
+  type: 'Certification' | 'Achievement';
 }
 
 const Certifications: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  
+
   const certifications: Certification[] = [
     {
       id: '1',
-      name: 'Huawei Datacom HCIA',
-      issuer: 'Huawei',
-      date: '2024',
-      credentialId: 'HCIA-001',
-      skills: ['Network Routing', 'Switching', 'Network Security'],
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHyUbwUVyT_n3dPqke8BTH0Po0_TmohRIXAQ&s'
+      name: 'HCIA-Datacom',
+      issuer: 'Huawei Technologies',
+      date: 'Valid through July 1, 2028',
+      credentialId: '010103901683810042132756723',
+      description:
+        'Huawei Certified ICT Associate in Datacom, demonstrating foundational knowledge of data communication networks, routing, switching, and network technologies.',
+      skills: [
+        'Network Routing',
+        'Switching',
+        'IP Networking',
+        'Network Configuration',
+        'Network Troubleshooting',
+        'Datacom Fundamentals'
+      ],
+      careerPaths: [
+        'Junior Network Administrator',
+        'Network Support Technician',
+        'Network Operations Center (NOC) Technician',
+        'Datacom Support Technician'
+      ],
+      image: '/images/huawei-hcia-certificate.png',
+      imageFit: 'contain',
+      type: 'Certification'
     },
     {
       id: '2',
-      name: 'Fortinet Certified Associate Cybersecurity',
+      name: 'Fortinet Cybersecurity Fundamentals',
       issuer: 'Fortinet',
       date: '2024',
-      credentialId: 'N/A',
-      skills: ['Network Security', 'Firewall Configuration', 'Threat Protection'],
-      image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg'
+      credentialId: 'Not provided',
+      description:
+        'Foundational cybersecurity training covering essential security concepts, network protection, threat awareness, and the principles of securing digital infrastructure.',
+      skills: [
+        'Cybersecurity Fundamentals',
+        'Network Security',
+        'Threat Protection',
+        'Firewall Concepts',
+        'Security Awareness',
+        'Threat Detection'
+      ],
+      careerPaths: [
+        'Junior Security Operations Analyst',
+        'SOC Analyst Trainee',
+        'Network Security Support',
+        'Firewall Support Technician'
+      ],
+      image: 'https://cdn.simpleicons.org/fortinet/EE3124',
+      imageFit: 'contain',
+      type: 'Certification'
     },
     {
       id: '3',
-      name: 'Cisco Network Essentials',
-      issuer: 'Cisco',
-      date: '2024',
-      credentialId: 'CISCO-001',
-      skills: ['Networking Fundamentals', 'Network Design', 'Troubleshooting'],
-      image: 'https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg'
+      name: 'ACSC - 1st Place, picoCTF-Africa 2025',
+      issuer: 'Adventist University of Central Africa',
+      date: 'May 13, 2025',
+      credentialId: 'Certificate of Achievement',
+      description:
+        'Awarded for winning 1st Position in the picoCTF-Africa 2025 Competition, Rwanda Undergraduate Category. Recognition of practical cybersecurity challenge-solving and competitive technical achievement.',
+      skills: [
+        'Cybersecurity Problem-Solving',
+        'Capture The Flag (CTF)',
+        'Security Challenge Analysis',
+        'Technical Investigation',
+        'Analytical Thinking',
+        'Competitive Cybersecurity'
+      ],
+      careerPaths: [
+        'Cybersecurity Analyst',
+        'Security Research Assistant',
+        'Junior Penetration Testing Trainee',
+        'Cybersecurity Competition Participant'
+      ],
+      image: '/images/acsc-certificate-upright.png',
+      imageFit: 'contain',
+      type: 'Achievement'
     },
     {
       id: '4',
+      name: 'Cisco Networking Essentials',
+      issuer: 'Cisco',
+      date: '2024',
+      credentialId: 'Not provided',
+      description:
+        'Networking fundamentals covering connectivity, network infrastructure, basic configuration, and troubleshooting.',
+      skills: [
+        'Networking Fundamentals',
+        'Network Infrastructure',
+        'IP Addressing',
+        'Network Troubleshooting',
+        'Connectivity'
+      ],
+      careerPaths: [
+        'IT Support Technician',
+        'Junior Network Support',
+        'Technical Support Specialist'
+      ],
+      image: 'https://cdn.simpleicons.org/cisco/1BA0D7',
+      imageFit: 'contain',
+      type: 'Certification'
+    },
+    {
+      id: '5',
       name: 'Linux Essentials',
       issuer: 'Linux Professional Institute',
       date: '2024',
-      credentialId: 'LINUX-001',
-      skills: ['Linux Administration', 'Shell Scripting', 'System Management'],
-      image: 'https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg'
+      credentialId: 'Not provided',
+      description:
+        'Foundational Linux knowledge covering operating system concepts, command-line operations, file management, and basic system administration.',
+      skills: [
+        'Linux Fundamentals',
+        'Command Line',
+        'File Management',
+        'Shell Basics',
+        'Operating Systems',
+        'System Administration'
+      ],
+      careerPaths: [
+        'Junior Linux Administrator',
+        'IT Systems Support',
+        'Technical Support Specialist',
+        'Junior Cloud Support'
+      ],
+      image: 'https://cdn.simpleicons.org/linux/FCC624',
+      imageFit: 'contain',
+      type: 'Certification'
     }
   ];
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('opacity-100');
-          entry.target.classList.remove('opacity-0', 'translate-y-10');
+          entry.target.classList.remove(
+            'opacity-0',
+            'translate-y-10'
+          );
         }
       },
-      {
-        root: null,
-        threshold: 0.1,
-      }
+      { threshold: 0.1 }
     );
-    
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-    
+
+    const section = sectionRef.current;
+
+    if (section) observer.observe(section);
+
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      if (section) observer.unobserve(section);
     };
   }, []);
-  
+
   const nextCertificate = () => {
-    setActiveIndex((prev) => (prev + 1) % certifications.length);
+    setActiveIndex(
+      (prev) => (prev + 1) % certifications.length
+    );
   };
-  
+
   const prevCertificate = () => {
-    setActiveIndex((prev) => (prev - 1 + certifications.length) % certifications.length);
+    setActiveIndex(
+      (prev) =>
+        (prev - 1 + certifications.length) %
+        certifications.length
+    );
   };
-  
+
+  const activeCertificate = certifications[activeIndex];
+
   return (
-    <section 
-      id="certifications" 
+    <section
+      id="certifications"
       ref={sectionRef}
       className="py-20 transition-all duration-700 opacity-0 translate-y-10 bg-gray-50 dark:bg-gray-900/50"
     >
-      <div className="container">
+      <div className="container mx-auto px-4">
+
         <div className="mb-16 text-center">
-          <h2 className="section-title mx-auto">Certifications</h2>
-          <p className="text-foreground/70 max-w-3xl mx-auto">
-            Professional certifications and qualifications in networking and cybersecurity.
+          <h2 className="section-title mx-auto">
+            Certifications & Achievements
+          </h2>
+
+          <p className="text-foreground/70 max-w-3xl mx-auto mt-4">
+            Professional certifications, technical expertise,
+            and competitive achievements across networking,
+            cybersecurity, and IT infrastructure.
           </p>
         </div>
-        
+
         <div className="max-w-5xl mx-auto">
+
           <div className="relative mb-12">
+
             <div className="flex items-center justify-between mb-6">
-              <button 
+
+              <button
                 onClick={prevCertificate}
                 className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-md hover:bg-primary hover:text-white transition-all"
                 aria-label="Previous certificate"
               >
                 <ChevronLeft size={20} />
               </button>
-              
+
               <div className="text-center">
                 <span className="text-sm text-foreground/60">
                   {activeIndex + 1} of {certifications.length}
                 </span>
               </div>
-              
-              <button 
+
+              <button
                 onClick={nextCertificate}
                 className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-md hover:bg-primary hover:text-white transition-all"
                 aria-label="Next certificate"
               >
                 <ChevronRight size={20} />
               </button>
+
             </div>
-            
+
             <div className="overflow-hidden">
-              <div 
+
+              <div
                 className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+                style={{
+                  transform: `translateX(-${activeIndex * 100}%)`
+                }}
               >
+
                 {certifications.map((cert) => (
-                  <div key={cert.id} className="w-full flex-shrink-0">
+
+                  <div
+                    key={cert.id}
+                    className="w-full flex-shrink-0"
+                  >
+
                     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+
                       <div className="md:flex">
-                        <div className="md:w-1/3 h-48 md:h-auto relative">
-                          <img 
-                            src={cert.image} 
-                            alt={cert.name}
-                            className="w-full h-full object-cover"
+
+                        {/* Certificate / Platform Image */}
+                        <div className="md:w-2/5 min-h-[260px] md:min-h-[440px] bg-gray-100 dark:bg-gray-700 flex items-center justify-center p-5">
+
+                          <img
+                            src={cert.image}
+                            alt={`${cert.name} certificate or logo`}
+                            className={`w-full h-full ${
+                              cert.imageFit === 'contain'
+                                ? 'object-contain'
+                                : 'object-cover'
+                            }`}
+                            loading="lazy"
                           />
-                          <div className="absolute inset-0 bg-primary/30 flex items-center justify-center">
-                            <Award size={60} className="text-white" />
-                          </div>
+
                         </div>
-                        <div className="p-8 md:w-2/3">
-                          <div className="flex items-start justify-between mb-4">
-                            <h3 className="text-xl font-medium">{cert.name}</h3>
-                            <div className="p-2 bg-accent/10 rounded-full">
-                              <Award size={20} className="text-accent" />
+
+                        {/* Certification Information */}
+                        <div className="p-8 md:w-3/5">
+
+                          <div className="flex items-start justify-between mb-5">
+
+                            <div>
+                              <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                                {cert.type}
+                              </span>
+
+                              <h3 className="text-xl font-semibold mt-2">
+                                {cert.name}
+                              </h3>
                             </div>
+
+                            <div className="p-3 bg-primary/10 rounded-full">
+                              {cert.type === 'Achievement' ? (
+                                <Award
+                                  size={24}
+                                  className="text-primary"
+                                />
+                              ) : (
+                                <ShieldCheck
+                                  size={24}
+                                  className="text-primary"
+                                />
+                              )}
+                            </div>
+
                           </div>
-                          
-                          <div className="mb-6">
-                            <p className="text-foreground/75 mb-1">
-                              <span className="font-medium">Issuer:</span> {cert.issuer}
+
+                          <p className="text-foreground/70 text-sm leading-relaxed mb-6">
+                            {cert.description}
+                          </p>
+
+                          <div className="space-y-2 mb-6 text-sm">
+
+                            <p className="text-foreground/75">
+                              <span className="font-semibold">
+                                Issuer:
+                              </span>{' '}
+                              {cert.issuer}
                             </p>
-                            <p className="text-foreground/75 mb-1">
-                              <span className="font-medium">Date:</span> {cert.date}
+
+                            <p className="text-foreground/75">
+                              <span className="font-semibold">
+                                Date / Validity:
+                              </span>{' '}
+                              {cert.date}
                             </p>
-                            <p className="text-foreground/75 mb-4">
-                              <span className="font-medium">Credential ID:</span> {cert.credentialId}
+
+                            <p className="text-foreground/75 break-all">
+                              <span className="font-semibold">
+                                Credential ID:
+                              </span>{' '}
+                              {cert.credentialId}
                             </p>
+
                           </div>
-                          
+
+                          {/* Areas of Expertise */}
                           <div className="mb-6">
-                            <h4 className="text-sm font-medium uppercase text-foreground/60 mb-2">Skills</h4>
+
+                            <h4 className="text-sm font-semibold uppercase tracking-wide text-foreground/60 mb-3">
+                              Areas of Expertise
+                            </h4>
+
                             <div className="flex flex-wrap gap-2">
+
                               {cert.skills.map((skill, i) => (
-                                <span 
-                                  key={i} 
-                                  className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full"
+                                <span
+                                  key={i}
+                                  className="px-3 py-1.5 bg-primary/10 text-primary text-xs rounded-full"
                                 >
                                   {skill}
                                 </span>
                               ))}
+
                             </div>
                           </div>
-                          
-                          {cert.credentialId !== 'N/A' && (
-                            <a 
-                              href="#" 
-                              className="inline-flex items-center text-primary hover:underline"
-                            >
-                              <span className="mr-1">View Credential</span>
-                              <ExternalLink size={14} />
-                            </a>
-                          )}
+
+                          {/* Potential Career Paths */}
+                          <div>
+
+                            <h4 className="text-sm font-semibold uppercase tracking-wide text-foreground/60 mb-3">
+                              Relevant Career Paths
+                            </h4>
+
+                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+
+                              {cert.careerPaths.map((role, i) => (
+                                <li
+                                  key={i}
+                                  className="flex items-start gap-2 text-sm text-foreground/75"
+                                >
+                                  <span className="text-primary mt-1">
+                                    •
+                                  </span>
+                                  {role}
+                                </li>
+                              ))}
+
+                            </ul>
+
+                            <p className="text-xs text-foreground/50 mt-3">
+                              These are potential career paths
+                              supported by relevant skills and
+                              additional practical experience.
+                            </p>
+
+                          </div>
+
                         </div>
+
                       </div>
                     </div>
                   </div>
+
                 ))}
+
               </div>
             </div>
+
           </div>
-          
+
+          {/* Expertise and Career Application */}
           <div className="grid md:grid-cols-2 gap-6">
+
             <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-              <h3 className="text-xl font-medium mb-4">My Learning Journey</h3>
-              <p className="text-foreground/80 mb-4">
-                Continuously expanding my knowledge in networking and cybersecurity through professional certifications and hands-on learning. Each certification represents a milestone in my journey to become a proficient network engineer.
+
+              <h3 className="text-xl font-semibold mb-4">
+                Areas of Technical Expertise
+              </h3>
+
+              <p className="text-foreground/75 text-sm leading-relaxed mb-4">
+                My technical foundation combines networking,
+                cybersecurity, Linux systems, and IT infrastructure.
+                I apply these skills to understanding, supporting,
+                and improving technology environments.
               </p>
-              <p className="text-foreground/80">
-                I focus on practical skills that can be applied in real-world scenarios, combining theoretical knowledge with hands-on experience to build a comprehensive skill set.
-              </p>
-            </div>
-            
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-              <h3 className="text-xl font-medium mb-4">Future Goals</h3>
-              <p className="text-foreground/80 mb-4">
-                My certification roadmap includes advanced networking certifications and specialized cybersecurity credentials to deepen my expertise in these fields.
-              </p>
-              <ul className="space-y-2 text-foreground/80">
-                <li className="flex items-start">
-                  <span className="h-5 w-5 rounded-full bg-primary/20 flex items-center justify-center mr-2 mt-0.5">
-                    <span className="h-2 w-2 rounded-full bg-primary"></span>
-                  </span>
-                  Advanced network security specialization
-                </li>
-                <li className="flex items-start">
-                  <span className="h-5 w-5 rounded-full bg-primary/20 flex items-center justify-center mr-2 mt-0.5">
-                    <span className="h-2 w-2 rounded-full bg-primary"></span>
-                  </span>
-                  Cloud networking certification
-                </li>
-                <li className="flex items-start">
-                  <span className="h-5 w-5 rounded-full bg-primary/20 flex items-center justify-center mr-2 mt-0.5">
-                    <span className="h-2 w-2 rounded-full bg-primary"></span>
-                  </span>
-                  Advanced Linux administration credentials
-                </li>
+
+              <ul className="space-y-3 text-sm text-foreground/80">
+
+                <li>• Network infrastructure and administration</li>
+                <li>• Cybersecurity fundamentals and threat awareness</li>
+                <li>• Network security and protection</li>
+                <li>• Linux and operating system administration</li>
+                <li>• Technical troubleshooting and problem-solving</li>
+
               </ul>
+
             </div>
+
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+
+              <h3 className="text-xl font-semibold mb-4">
+                Professional Development Goals
+              </h3>
+
+              <p className="text-foreground/75 text-sm leading-relaxed mb-4">
+                Continuously developing my capabilities in
+                cybersecurity, cloud technologies, IT systems,
+                and technical leadership.
+              </p>
+
+              <ul className="space-y-3 text-sm text-foreground/80">
+
+                <li>• Advanced cybersecurity and security operations</li>
+                <li>• Cloud security and infrastructure</li>
+                <li>• Linux and systems administration</li>
+                <li>• Network security specialization</li>
+                <li>• IT service management and technical leadership</li>
+
+              </ul>
+
+            </div>
+
           </div>
+
         </div>
       </div>
     </section>
