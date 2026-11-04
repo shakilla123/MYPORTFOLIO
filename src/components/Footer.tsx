@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
               IS<span className="text-accent">.</span>
             </h2>
             <p className="text-gray-400 max-w-md">
-              Network Engineer & Cybersecurity Enthusiast
+              IT Enthusiast
             </p>
           </div>
           
@@ -148,7 +148,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <Mail size={18} className="text-primary mr-2 mt-1" />
-                <span className="text-gray-400">ishimweshakila8@gmail.com</span>
+                <span className="text-gray-400">ishimweshakilla2@gmail.com</span>
               </li>
               <li className="flex items-start">
                 <Linkedin size={18} className="text-primary mr-2 mt-1" />
