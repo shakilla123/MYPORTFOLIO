@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Terminal, BookOpen, Code, Network } from 'lucide-react';
+import profileImg from '../assets/compressed-ppc.jpg';
 
 const About: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -43,18 +44,18 @@ const About: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-12 gap-10">
+       <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5 lg:col-span-4">
             <div className="relative">
               <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
                 <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D03AQGSVlJrzCa0YA/profile-displayphoto-shrink_800_800/B4DZYAA4TfHsAc-/0/1743756954686?e=1751500800&v=beta&t=Wa6WmbTOGTWOPXdMCOtXBE5iAKwJuyeXI-xCTNZ6DVQ" 
+                  src={profileImg} 
                   alt="Ishimwe Shakilla" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-full"></div>
-              <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/20 rounded-full"></div>
+              <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/ primary/20 rounded-full"></div>
             </div>
           </div>
           
