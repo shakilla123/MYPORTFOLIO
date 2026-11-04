@@ -5,7 +5,15 @@ const Hero: React.FC = () => {
   const typingRef = useRef<HTMLSpanElement>(null);
   
   useEffect(() => {
-    const roles = ['Network Engineer', 'Cybersecurity Enthusiast', 'Problem Solver'];
+    const roles = ['Problem Solver',
+      'Cloud Security Specialist',
+      'UI/UX Designer',
+      'Cybersecurity Advocate', 
+      'Solutions Engineer',
+      'Front-End Developer',
+      'Service Management Professional', 
+      'IT Enthusiast'];
+      
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
